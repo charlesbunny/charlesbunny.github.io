@@ -613,12 +613,30 @@ if (reversed == null) { reversed = false; }
 		_this.look_outside_btn.addEventListener("click", turnPage);
 		
 		createjs.Sound.on("fileload", handleLoad);
-		createjs.Sound.registerSound({src:"/mus/1_Accordion.ogg", id:"sound1"});
-		createjs.Sound.registerSound({src:"/mus/6_Fiddle.ogg", id:"sound2"});
-		createjs.Sound.registerSound({src:"/mus/3_Guitar.ogg", id:"sound3"});
-		createjs.Sound.registerSound({src:"/mus/4_Bass.ogg", id:"sound4"});
-		createjs.Sound.registerSound({src:"/mus/5_Drums.ogg", id:"sound5"});
-		createjs.Sound.registerSound({src:"/mus/2_Spoons.ogg", id:"sound6"});
+		
+		//createjs.Sound.registerSound({src:{ogg:"/mus/1_Accordion.ogg",mp3:"/mus/1_Accordion.mp3" id:"sound1"});
+		//createjs.Sound.registerSound({src:{ogg:"/mus/6_Fiddle.ogg",mp3:"/mus/6_Fiddle.mp3" id:"sound2"});
+		//createjs.Sound.registerSound({src:{ogg:"/mus/3_Guitar.ogg",mp3:"/mus/3_Guitar.mp3", id:"sound3"});
+		//createjs.Sound.registerSound({src:{ogg:"/mus/4_Bass.ogg",mp3:"/mus/4_Bass.mp3" id:"sound4"});
+		//createjs.Sound.registerSound({src:{ogg:"/mus/5_Drums.ogg",mp3:"/mus/5_Drums.mp3" id:"sound5"});
+		//createjs.Sound.registerSound({src:{ogg:"/mus/2_Spoons.ogg",mp3:"/mus/2_Spoons.mp3", id:"sound6"});
+		
+		var sounds = {path:"./",
+				manifest: [
+				{id: "sound1", src: {mp3:"/mus/1_Accordion.mp3", ogg:"/mus/1_Accordion.ogg"}},
+				{id: "sound2", src: {mp3:"/mus/6_Fiddle.mp3", ogg:"/mus/6_Fiddle.ogg"}},
+				{id: "sound3", src: {mp3:"/mus/3_Guitar.mp3", ogg:"/mus/3_Guitar.ogg"}},
+				{id: "sound4", src: {mp3:"/mus/4_Bass.mp3", ogg:"/mus/4_Bass.ogg"}},
+				{id: "sound5", src: {mp3:"/mus/5_Drums.mp3", ogg:"/mus/5_Drums.ogg"}},
+				{id: "sound6", src: {mp3:"/mus/2_Spoons.mp3", ogg:"/mus/2_Spoons.ogg"}},
+		    ]
+		};
+		
+		    createjs.Sound.alternateExtensions = ["mp3"];
+		    createjs.Sound.addEventListener("fileload", handleLoad);
+		    createjs.Sound.registerSounds(sounds);
+		
+		
 		
 		var soundProps = new createjs.PlayPropsConfig().set({
 			loop: -1,
@@ -913,15 +931,15 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/Bitmap1.png?1606926933041", id:"Bitmap1"},
-		{src:"images/Bitmap2.png?1606926933041", id:"Bitmap2"},
-		{src:"images/Bitmap3.png?1606926933041", id:"Bitmap3"},
-		{src:"images/Bitmap4.png?1606926933041", id:"Bitmap4"},
-		{src:"images/Bitmap5.png?1606926933041", id:"Bitmap5"},
-		{src:"images/Bitmap6.png?1606926933041", id:"Bitmap6"},
-		{src:"images/Bitmap7.png?1606926933041", id:"Bitmap7"},
-		{src:"images/Bitmap8.png?1606926933041", id:"Bitmap8"},
-		{src:"images/Bitmap9.png?1606926933041", id:"Bitmap9"}
+		{src:"images/Bitmap1.png", id:"Bitmap1"},
+		{src:"images/Bitmap2.png", id:"Bitmap2"},
+		{src:"images/Bitmap3.png", id:"Bitmap3"},
+		{src:"images/Bitmap4.png", id:"Bitmap4"},
+		{src:"images/Bitmap5.png", id:"Bitmap5"},
+		{src:"images/Bitmap6.png", id:"Bitmap6"},
+		{src:"images/Bitmap7.png", id:"Bitmap7"},
+		{src:"images/Bitmap8.png", id:"Bitmap8"},
+		{src:"images/Bitmap9.png", id:"Bitmap9"}
 	],
 	preloads: []
 };
