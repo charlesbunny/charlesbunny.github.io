@@ -663,19 +663,23 @@ if (reversed == null) { reversed = false; }
 	cjs.MovieClip.apply(this,[props]);
 
 	// timeline functions:
-	this.frame_216 = function() {
+	this.frame_0 = function() {
 		this.stop();
+	}
+	this.frame_37 = function() {
+		this.stop();
+		this.visible = false;
 	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).wait(216).call(this.frame_216).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(37).call(this.frame_37).wait(1));
 
 	// Layer_1
 	this.instance = new lib.TaptoHear();
 	this.instance.setTransform(135,22.7,1,1,0,0,0,135,10.3);
 	this.instance.cache(-42,-41,698,136);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(180).to({alpha:0},35).to({_off:true},1).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1).to({alpha:0},35).to({_off:true},1).wait(1));
 
 	this._renderFirstFrame();
 
@@ -813,7 +817,6 @@ if (reversed == null) { reversed = false; }
 			_this.beginbtn.visible = false;
 			_this.look_inside_btn.visible = true;
 			_this.look_outside_btn.visible = false;
-			_this.instructions.gotoAndPlay(0);
 			_this.instructions.visible = true;
 			assignMusicTracks();
 		})
@@ -1037,6 +1040,10 @@ if (reversed == null) { reversed = false; }
 					volume: 0.0
 				}, 500);
 			} else {
+				console.log(_this.instructions.currentFrame);
+				if (_this.instructions.currentFrame == 0) {
+					_this.instructions.play();
+				}
 				_mc.playing = true;
 				_mc.play();
 				if (currentlyPlaying == 0) {
