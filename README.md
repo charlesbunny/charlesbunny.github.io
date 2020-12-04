@@ -1,6 +1,6 @@
 # charlesbunny.github.io
 
-A seasonal christmas card made with createjs. Primarily made in Adobe Animate CC.
-Music written by myself, no infringement intended.
+A front page for Charles Bunny's projects.
 
-viewable at: https://charlesbunny.github.io/?msg=message1
+Current Projects:
+Mummer's Christmas Card 2020 - alpha0.5 = https://charlesbunny.github.io/card2020/?msg=default
